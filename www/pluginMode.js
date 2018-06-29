@@ -1,8 +1,8 @@
 module.exports = (function(){
 
-    var mode = function(args, successCallback, errorCallback){
-        cordova.exec(successCallback, errorCallback, "modeAirplane", "funcionJava", [args]);
-};
+    var mode = function(){
+        cordova.exec("modeAirplane", "isAirplaneModeOn");
+    };
 
     return {
         functionMode:mode

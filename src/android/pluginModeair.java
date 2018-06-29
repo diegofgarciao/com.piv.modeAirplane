@@ -8,18 +8,17 @@ import android.*;
 
 public class pluginModeair extends CordovaPlugin {
 
-private CallbackContext callbackContext;
-private String vuelta = "PIV";
-private String rta;
+/**
+* Gets the state of Airplane Mode.
+* @param context
+* @return true if enabled.
+*/
 
-  @Override
-    public boolean execute (String action, final JSONArray args, CallbackContext callbackContext){
+private static boolean isAirplaneModeOn(Context context) {
 
-      if(action.equals("funcionJava")){
-        rta = args + vuelta;
-        callbackContext.success(rta);
-      }
-        return true;
-      }
+   return Settings.System.getInt(context.getContentResolver(),
+           Settings.System.AIRPLANE_MODE_ON, 0) != 0;
+
+}
 
 }
